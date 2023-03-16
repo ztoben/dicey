@@ -3,8 +3,36 @@
   to { transform: rotate3d(1, 1, 0, 360deg); }
 }
 
+.cube {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.cube[data-roll="1"] {
+  transform: rotate3d(0, 0, 0, 90deg);
+}
+.cube[data-roll="2"] {
+  transform: rotate3d(-1, 0, 0, 90deg);
+}
+.cube[data-roll="3"] {
+  transform: rotate3d(0, 1, 0, 90deg);
+}
+.cube[data-roll="4"] {
+  transform: rotate3d(0, -1, 0, 90deg);
+}
+.cube[data-roll="5"] {
+  transform: rotate3d(1, 0, 0, 90deg);
+}
+.cube[data-roll="6"] {
+  transform: rotate3d(1, 0, 0, 180deg);
+}
+
 .App {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -18,12 +46,37 @@
   margin: 100px;
 }
 
-.cube {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  transform-style: preserve-3d;
-  animation: turn 5s linear infinite;
+.button {
+  background: #282c34;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #fff;
+  color: #282c34;
+}
+
+.button:active {
+  background: #c9c9c9;
+  color: #282c34;
+  border: 1px solid #c9c9c9;
+}
+
+.result {
+  color: #fff;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.number {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 @media (prefers-reduced-motion: reduce) {

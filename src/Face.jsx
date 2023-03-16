@@ -11,14 +11,16 @@ const dotGrid = {
 
 function Face({position, number}) {
   return (
-    <div class={`${styles.face} ${styles[position]}`}>
+    <div class={`${styles.face} ${styles[position]}`} data-side={number}>
       <div class={styles.dotContainer}>
         {dotGrid[number].map((row, i) => (
-          <div class={styles.row} key={i}>
-            {row.map((dot, j) => (
-              <div class={dot ? styles.dot : styles.empty} key={j} />
-            ))}
-          </div>
+          row.map((dot, j) => dot ? (
+            <div class={styles.dotHolder} key={i + j}>
+              <div class={styles.dot} />
+            </div>
+          ) : (
+            <div class={styles.empty} key={i + j} />
+          ))
         ))}
       </div>
     </div>
